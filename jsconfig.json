@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"compilerOptions": {"target": "ES6", "module": "commonjs", "allowSyntheticDefaultImports": true}, "exclude": ["node_modules", "dist"]}
+=======
+﻿{"compilerOptions": {"target": "ES6", "module": "commonjs", "allowSyntheticDefaultImports": true}, "exclude": ["node_modules", "dist"]}
+>>>>>>> 99b736e (Första uppladdningen med alla filer)
