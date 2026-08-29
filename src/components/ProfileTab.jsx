@@ -1,97 +1,57 @@
-<<<<<<< HEAD
 import React from 'react';
 
-export default function ProfileTab({ vehicle, setVehicle }) {
+export default function ProfileTab({ isPremium, setIsPremium }) {
   return (
-    <div className="p-8 max-w-md mx-auto space-y-6 animate-fade-in">
-      <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">Inställningar</h2>
-      
-      {/* Fordonsinställningar */}
-      <div className="bg-slate-50 p-6 rounded-[24px] border border-slate-100 space-y-4">
-        <h3 className="font-bold text-xs text-slate-400 uppercase tracking-wider">Fordon</h3>
-        <div className="space-y-3">
-          
-          {/* Regnr */}
-          <div className="space-y-1">
-            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Registreringsnummer</label>
-            <input 
-              type="text" 
-              value={vehicle.regnr} 
-              onChange={(e) => setVehicle({...vehicle, regnr: e.target.value})}
-              className="w-full bg-white border border-slate-200 px-4 py-2.5 rounded-xl text-sm font-mono uppercase font-bold outline-none focus:border-slate-900 transition text-slate-800"
-              placeholder="T.EX. ABC123"
-            />
-          </div>
+    <div className="flex-1 bg-[#F8F9FA] min-h-screen p-8 lg:p-12 animate-fade-in pl-[100px] lg:pl-[120px]">
+      <header className="mb-12">
+        <h1 className="text-4xl font-black tracking-tight text-[#0F172A]">
+          Min profil
+        </h1>
+        <p className="text-sm text-[#64748B] font-semibold mt-1">
+          Hantera dina kontoinställningar och medlemskap.
+        </p>
+      </header>
 
-          {/* Fordonstyp */}
-          <div className="space-y-1">
-            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Fordonstyp</label>
-            <select 
-              value={vehicle.type}
-              onChange={(e) => setVehicle({...vehicle, type: e.target.value})}
-              className="w-full bg-white border border-slate-200 px-3 py-2.5 rounded-xl text-sm font-bold text-slate-700 outline-none focus:border-slate-900 transition"
+      <div className="max-w-2xl space-y-6">
+        {/* Kontokort */}
+        <div className="bg-white p-8 rounded-[32px] border border-slate-100 shadow-sm flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="h-16 w-16 bg-slate-100 rounded-full flex items-center justify-center text-2xl font-bold text-slate-600">
+              U
+            </div>
+            <div>
+              <h3 className="font-bold text-lg text-[#0F172A]">Testanvändare</h3>
+              <p className="text-sm text-[#64748B]">user@hittutik.se</p>
+            </div>
+          </div>
+          <span className={`text-xs font-black px-3 py-1.5 rounded-full ${
+            isPremium ? 'bg-[#E6F4EA] text-[#137333]' : 'bg-slate-100 text-slate-500'
+          }`}>
+            {isPremium ? '👑 Premium' : 'Gratiskonto'}
+          </span>
+        </div>
+
+        {/* Medlemskapshantering */}
+        <div className="bg-white p-8 rounded-[32px] border border-slate-100 shadow-sm space-y-4">
+          <h4 className="font-bold text-base text-[#0F172A]">Mitt medlemskap</h4>
+          <p className="text-sm text-[#64748B] leading-relaxed">
+            Med Hittutik+ får du tillgång till realtidskartan, exakta lagerhyllor i butik och offline-läge.
+          </p>
+          <div className="pt-2">
+            <button
+              type="button"
+              onClick={() => setIsPremium(!isPremium)}
+              className={`font-bold text-sm px-5 py-2.5 rounded-xl transition ${
+                isPremium 
+                  ? 'border border-red-200 text-red-600 hover:bg-red-50' 
+                  : 'bg-[#FBBF24] text-[#0A0E1A] hover:scale-[1.02]'
+              }`}
             >
-              <option>Standardbil</option>
-              <option>Bil med släp</option>
-              <option>Hög SUV / Skåpbil</option>
-            </select>
+              {isPremium ? 'Avsluta prenumeration (Demo)' : 'Aktivera Hittutik+ (Demo)'}
+            </button>
           </div>
-
         </div>
       </div>
-
-      <p className="text-[11px] text-slate-400 px-2 leading-relaxed">
-        Dina fordonsuppgifter sparas lokalt. Appen använder informationen för att anpassa din rutt och rita ut rätt fordonsmodell på kartan så att du enkelt hittar tillbaka.
-      </p>
     </div>
   );
 }
-=======
-import React from 'react';
-
-export default function ProfileTab({ vehicle, setVehicle }) {
-  return (
-    <div className="p-8 max-w-md mx-auto space-y-6 animate-fade-in">
-      <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">Inställningar</h2>
-      
-      {/* Fordonsinställningar */}
-      <div className="bg-slate-50 p-6 rounded-[24px] border border-slate-100 space-y-4">
-        <h3 className="font-bold text-xs text-slate-400 uppercase tracking-wider">Fordon</h3>
-        <div className="space-y-3">
-          
-          {/* Regnr */}
-          <div className="space-y-1">
-            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Registreringsnummer</label>
-            <input 
-              type="text" 
-              value={vehicle.regnr} 
-              onChange={(e) => setVehicle({...vehicle, regnr: e.target.value})}
-              className="w-full bg-white border border-slate-200 px-4 py-2.5 rounded-xl text-sm font-mono uppercase font-bold outline-none focus:border-slate-900 transition text-slate-800"
-              placeholder="T.EX. ABC123"
-            />
-          </div>
-
-          {/* Fordonstyp */}
-          <div className="space-y-1">
-            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Fordonstyp</label>
-            <select 
-              value={vehicle.type}
-              onChange={(e) => setVehicle({...vehicle, type: e.target.value})}
-              className="w-full bg-white border border-slate-200 px-3 py-2.5 rounded-xl text-sm font-bold text-slate-700 outline-none focus:border-slate-900 transition"
-            >
-              <option>Standardbil</option>
-              <option>Bil med släp</option>
-              <option>Hög SUV / Skåpbil</option>
-            </select>
-          </div>
-
-        </div>
-      </div>
-
-      <p className="text-[11px] text-slate-400 px-2 leading-relaxed">
-        Dina fordonsuppgifter sparas lokalt. Appen använder informationen för att anpassa din rutt och rita ut rätt fordonsmodell på kartan så att du enkelt hittar tillbaka.
-      </p>
-    </div>
-  );
-}
->>>>>>> 99b736e (Första uppladdningen med alla filer)
