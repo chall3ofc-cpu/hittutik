@@ -1,0 +1,5 @@
+import { Search, WifiOff } from "lucide-react";
+
+export default function MapSearch({ query, onQuery, offline, onOffline }) {
+  return <div className="absolute inset-x-0 top-0 z-30 p-3 sm:p-5"><div className="mx-auto flex max-w-3xl flex-col gap-2"><div className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3.5 shadow-xl shadow-slate-900/10"><Search className="h-5 w-5 text-slate-400" /><input value={query} onChange={(e) => onQuery(e.target.value)} placeholder="Sök vara (t.ex. skruv, färg, hammare)" className="min-w-0 flex-1 bg-transparent text-sm font-semibold text-slate-900 outline-none placeholder:font-normal placeholder:text-slate-400" />{query && <button onClick={() => onQuery("")} className="text-xs font-bold text-slate-400">Rensa</button>}</div><button onClick={onOffline} className={`flex w-fit items-center gap-2 rounded-full px-3 py-2 text-xs font-bold shadow-lg transition ${offline ? "bg-emerald-600 text-white" : "bg-white text-slate-700"}`}><WifiOff className="h-3.5 w-3.5" />{offline ? "Offline-läge aktivt" : "Testa offline-läge"}</button></div></div>;
+}
